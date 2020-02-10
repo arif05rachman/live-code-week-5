@@ -37,7 +37,7 @@ class Controller {
         })
     }
     static update(req, res, next){
-        const {title, description, status, due_date} = req.body
+        const {} = req.body
         Comic.findOne({
             where: {
                 id: req.params.id
@@ -45,11 +45,8 @@ class Controller {
         })
         .then( data =>{
             if (data.UserId === req.user) {
-                return Eample.update({
-                    title,
-                    description,
-                    status,
-                    due_date,
+                return Comic.update({
+
                     },{
                         where:{
                             id:req.params.id
